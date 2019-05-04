@@ -10,10 +10,10 @@ class BooksController < ApplicationController
   def create
     @book = Book.new (book_params)
   if @book.save
-     redirect_to @book, notice: "書籍を登録しました。"
-   else
-     render :new
-   end
+      redirect_to @book, notice: "書籍を登録しました。"
+    else
+      render :new
+    end
   end
   
   def show
@@ -23,8 +23,6 @@ class BooksController < ApplicationController
   private
 
   def book_params
-    
-    params.require(:book).permit(:title, :price, :publish_date, :description)
     params.require(:book).permit(:title, :price, :publish_date,:description, :new_image)
   end
 

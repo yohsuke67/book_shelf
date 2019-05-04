@@ -18,3 +18,5 @@ ja:
       chancel: キャンセル
       index:
       price_yen: "¥%{price}"
+    index:
+      price_yen: "¥%{price}"

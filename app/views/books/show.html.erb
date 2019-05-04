@@ -1,27 +1,24 @@
- <div class="row">
+<div class="col-md-10 offset-md-1 mt-5">
+  <div class="row">
     <div class="col-md-4 mb-4">
-      <% if @book.image.attached? %>
-        <%= image_tag @book.image.variant(resize: "300x300"), class: "img-thumbnail" %>
-      <% else %>
-        <%= image_tag "no_image.png", class: "img-thumbnail" %>
-      <% end %>
+      <%= show_book_image @book %>
     </div>
     <div class="col-md-8">
+      <!-- ここにタイトルや価格、発売日 -->
       <h2><%= @book.title %></h2>
       <ul>
-        <li><b><%= t'.price' %>: </b><%= t(".price_yen", price: (number_with_delimiter @book.price)) %></li>
-        <li><b><%= t'.publish_date' %>: </b><%= @book.publish_date %></li>
+        <li><b><%= t '.price' %>: </b><%= t('.price_yen', price: (number_with_delimiter @book.price)) %></li>
+        <li><b><%= t '.publish_date' %>: </b><%= @book.publish_date %></li>
       </ul>
     </div>
   </div>
-   
   <hr>
-  <h4><%= t".description" %></h4>
+  <h4><%= t '.description' %></h4>
   <%= simple_format @book.description %>
-  <%= link_to t(".edit"), edit_book_path(@book), class: "btn btn-primary" %>
-  <%= button_tag t(".delete"), class: "btn btn-warning", data: {toggle: "modal", target: "#delete-book"} %>
-  <%= link_to t(".return"), books_path, class: "btn btn-secondary" %>
-</div>
+  <%= link_to t('.edit'), edit_book_path(@book), class: "btn btn-primary" %>
+  <%= button_tag t(".delete"), class: "btn btn-warning", data: { toggle: "modal", target: "#delete-book" } %>
+  <%= link_to t('.return'), books_path, class: "btn btn-secondary" %>
+</div> 
 
 <div class="modal fade" id="delete-book">
   <div class="modal-dialog">
